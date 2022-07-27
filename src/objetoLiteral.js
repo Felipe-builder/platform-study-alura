@@ -9,17 +9,15 @@ const user = {
   }
 }
 
-user.exibirInfos()
-const exibir = user.exibirInfos
-exibir()
-
-const exibir1 = function() {
-  console.log(this.nome)
+const admin = {
+  nome: 'Mariana',
+  email: 'm@m.com',
+  role: 'admin',
+  criarCurso() {
+    console.log('curso criado!')
+  }
 }
 
-exibir1()
-
-const exibirNome = exibir.bind(user)
-
-exibirNome()
-
+Object.setPrototypeOf(admin, user)
+admin.criarCurso()
+admin.exibirInfos()
