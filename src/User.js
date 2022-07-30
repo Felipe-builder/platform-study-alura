@@ -12,26 +12,50 @@ export default class User {
     this.#ativo = ativo
   }
 
-  #montaObjUser() {
-    return ({
-      nome: this.#nome,
-      email: this.#email,
-      nascimento: this.#nascimento,
-      role: this.#role,
-      ativo: this.#ativo
-    })
-  }
-
   exibirInfos() {
-    const userObject = this.#montaObjUser()
-    return `{\n\tnome: ${userObject.nome},\n\temail: ${userObject.email}\n\tnascimento: ${userObject.nascimento}\n\trole: ${userObject.role}\n\tativo: ${userObject.ativo}\n}`
+    return `{\n\tnome: ${this.nome},\n\temail: ${this.email}\n\tnascimento: ${this.nascimento}\n\trole: ${this.role}\n\tativo: ${this.ativo}\n}`
   }
 
-  getNome() {
+  get nome() {
     return this.#nome
   }
 
-  setNome(nome){
+  set nome(nome){
+    if (nome === '') {
+      throw new Error('Formato não válido')
+    }
     this.#nome = nome
+  }
+
+  get email(){
+    return this.#email
+  }
+
+  set email(email){
+    this.#email = email
+  }
+
+  get nascimento(){
+    return this.#nascimento
+  }
+
+  set nascimento(nascimento){
+    this.#nascimento = nascimento
+  }
+
+  get role(){
+    return this.#role
+  }
+
+  set role(role){
+    this.#role = role
+  }
+
+  get ativo(){
+    return this.#ativo
+  }
+
+  set ativo(ativo){
+    this.#ativo = ativo
   }
 }
